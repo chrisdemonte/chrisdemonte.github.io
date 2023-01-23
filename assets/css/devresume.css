@@ -12872,7 +12872,9 @@ a.resume-link:hover {
 }
 .list-item-video{
     width: 100%;
-    height: 50vh;
+    height: 30vw;
+    min-height: 250px;
+    max-height: 500px;
     margin-top: 20px;
     margin-bottom: 20px;
 }
