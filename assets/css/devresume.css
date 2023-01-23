@@ -12870,3 +12870,9 @@ a.resume-link:hover {
     margin-top: 20px;
     margin-bottom: 20px;
 }
+.list-item-video{
+    width: 100%;
+    height: 50vh;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
