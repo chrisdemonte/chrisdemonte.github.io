@@ -38,7 +38,7 @@
 							<ul class="list-unstyled mb-0">
 								<li class="mb-2"><i class="fas fa-phone-square fa-fw fa-lg me-2 "></i><a class="resume-link" href="tel:#">1631 338 4535</a></li>
 								<li class="mb-2"><i class="fas fa-envelope-square fa-fw fa-lg me-2"></i><a class="resume-link" href="mailto:#">chrisdemonte90@gmail.com</a></li>
-								<li class="mb-2"><i class="fas fa-globe fa-fw fa-lg me-2"></i><a class="resume-link" href="#">www.yourwebsite.com</a></li>
+								<li class="mb-2"><i class="fas fa-globe fa-fw fa-lg me-2"></i><a class="resume-link" href="#">chrisdemonte.com</a></li>
 								<li class="mb-0"><i class="fas fa-map-marker-alt fa-fw fa-lg me-2"></i>New York</li>
 							</ul>
 						</div><!--//resume-contact-->
@@ -49,7 +49,15 @@
 				<div class="resume-intro py-3">
 					<div class="row align-items-center">
 						<div class="col-12 col-md-3 col-xl-2 text-center">
-						    <img class="resume-profile-image mb-3 mb-md-0 me-md-5  ms-md-0 rounded mx-auto" src="assets/images/resume-profile.png" alt="image">
+							<script>
+								function hover(e){
+									e.setAttribute("src", "assets/images/resume-profile-color.png")
+								}
+								function unhover(e){
+									e.setAttribute("src", "assets/images/resume-profile.png")
+								}
+							</script>
+						    <img class="resume-profile-image mb-3 mb-md-0 me-md-5  ms-md-0 rounded mx-auto" src="assets/images/resume-profile.png" alt="image" onmouseover="hover(this)" onmouseout="unhover(this)">
 						</div>
 						
 						<div class="col text-start">
@@ -70,13 +78,42 @@
 										
 									</div>
 									<div class="item-content">
-										<p>Collaborated with scientists at the IOS Beamline, National Synchrotron Light Source II, Brookhaven National Laboratory, to develop software that improves the efficiency and user experience of data acquisition, processing, and analysis in X-ray photoelectron spectroscopy. </p>
-										<ul class="resume-list">
-											<li>Created a user interface in the Igor Pro programming language that provides tools for processing XPS data, including reading raw data, preprocessing, file managment/organization, normalization, calibration, and visualization.</li>
-											<li>Created a user interface in the Igor Pro programming language for analyzing XPS data through statistical curve fitting, and provides tools for visualizing curves, multi-curve fitting, and analysis on large batches of data. </li>
-											<li>Developed user interfaces with Python and PyQt that interface with the NSLS-II Bluesky control system to scan samples at the IOS beamline, schedule experimental procedures, and visualize collected data. </li>
-											<li>Technologies Used: Igor Pro 9, Python, Qt/PyQt, Qt Designer, iPython, BlueSky, Linux.</li>
+										<p> Collaborated with scientists at the IOS Beamline, National Synchrotron Light Source II, Brookhaven National Laboratory, to develop software that improves the efficiency and user experience of data acquisition, processing, and analysis for X-ray photoelectron spectroscopy (XPS) and X-ray absorption spectroscopy (XAS). </p>
+                                        <ul class="resume-list">
+                                            <li>Developed a Data Processing GUI in the Igor Pro programming language. The interface provides tools for parsing raw XPS data from text files; preprocessing Igor Pro wave data; auotmatic file management/organization; and data normalization, calibration, and visualization.</li>
+                                            <ul>
+                                                <li>Optimized the raw XPS data processing algorithm. As a result, it parses raw text into Igor Pro waves 70% faster than the old script.</li>
+                                                <li>Reduced the number of steps required to run processing functions from 8-10 steps to 2 steps.</li>
+                                                <li>Implemented a graph window and a scrollable list of waves to compare waves and visualize the effect of the processing steps.</li>
+                                                <li>Is currently used by scientists for research at the IOS beamline.</li>
+												<li>Screenshot of the processing interface, comparing two rhodium waves: </li>
+												<img class="list-item-image" src="./assets/images/igorpro_screenshot1.png" />
+                                            </ul>
+											
+                                            <li>Developed a Data Analysis GUI in the Igor Pro programming language for analyzing XPS data through statistical curve fitting. It provides tools for visualizing XPS wave data and fit curves, multi-curve fitting, and curve fitting on large batches of data. </li>
+                                            <ul>
+                                                <li>Improved on the old Igor Pro interface by incorporating all data entry fields into a single window, compared to the old interface that used multiple windows.</li>
+                                                <li>Allows users to easily switch between waves and fit curves, and dynamically changes the labels of data entry fields to reflect the selected curve.</li>
+                                                <li>Is currently used by scientists for research at the IOS beamline.</li>
+												<li>Screenshot of the analysis interface, fitting a multi-peak curve to a rhodium wave: </li>
+												<img class="list-item-image" src="./assets/images/igorpro_screenshot2.png" />
+											</ul>
+                                            <li>Developed two GUIs for XAS Data Acquisition and Data Analysis with Python and PyQt. They interface with BlueSky, the top level python framework of the NSLS-II control system. These GUIs improve the user experience of performing XAS and reduce the risk of user error. </li>
+                                            <ul>
+                                                <li>Improves on the old method where users typed commands into a Linux terminal. The GUI has sections for running different scans and plotting functions, making it easier to train new users at the beamline.</li>
+                                                <li>Protects the system from invalid parametrization with labeled data entry fields, and performs validation checks before commands are sent to BlueSky.</li>
+                                                <li>Implements its own command line to maintain the power and flexabilty of the Linux terminal, including searching through a history and auto-filling commands.</li>
+                                                <li>Logs the actions of the users in a log file. </li>
+                                                <li>The GUIs were unanimously preferred by users of the IOS beamline, and is currently in use to conduct experiments at the IOS beamline.</li>
+												<li>A screenshot of the plotting interface:</li>
+												<img class="list-item-image" src="./assets/images/bluesky_screenshot2.png" />
+												<li>A screenshot of the scanning interface with the command line:</li>
+												<img class="list-item-image" src="./assets/images/bluesky_screenshot1.png" />
+                                            </ul>
+                                            <li>Technologies Used: Igor Pro 9, Python, Qt/PyQt, Qt Designer, iPython, BlueSky, Linux.</li>
+
 										</ul>
+										
 									</div>
 								</div><!--//item-->
 								<div class="item mb-3">
@@ -86,12 +123,15 @@
 										
 									</div>
 									<div class="item-content">
-										<p>Developed software that is currently used by the Adelphi University Psychology Department to recreate an experiment that investigates the theory of depressive realism. In the original 1970s experiment, subjects would press a button that had either a positive or negative affect on a lightbulb turning on. 
-											<ul class="resume-list">
-											<li>Conducts the experiment through a Java based user interface. Upon completion of the experiment, the program runs statistical analysis on the data and outputs the results in a text file. </li>
-											<li>Later adapted to JavaScript so the experiment could be hosted on the Qualtrics Survey website. Utilizes the Qualtrics Survey Engine for data collection, analysis, and storage, with custom JavaScript for managing survey flow.</li>
-											<li>Submitted to the 2019 SURC Undergraduate Conference. Research paper currently pending.</li>
-											<li>Technologies Used: Java 8, JavaFX, JavaScript, Qualtrics.</li>
+										<p>Developed software used by the Study of Affect and Depression Lab at Adelphi University to conduct a specific type of behavioral health experiment called a judgement of contingency experiment. In the original experiment, subjects would press a button that had a predetermined probability of turning a light bulb on or off, based on if the button was pressed, and they were asked to estimate the degree of contingency between their response/lack of response and the outcome. 
+                                            <ul class="resume-list">
+                                            <li>The experiment was originally conducted with a physical apparatus. I designed a program that was the first software tool used for a judgement of contingency experiment that did alter the intended stimuli.</li>
+											<li>Conducts the experiment through a JavaFX GUI, and upon completion, the program runs statistical analysis on the data. </li>
+                                            <li>Was later adapted to JavaScript and hosted on the Qualtrics Survey website to utilize the Qualtrics Survey Engine for data collection, analysis, and storage.</li>
+                                            <li>As a result of this software, this area of research is continuing for the first time since the 1970s.</li>
+                                            <li>Submitted to the 2019 SURC Undergraduate Conference. Research paper currently pending.</li>
+                                            <li>Technologies Used: Java 8, JavaFX, JavaScript, Qualtrics.</li>
+
 										</ul>
 									</div>
 								</div><!--//item-->
@@ -103,24 +143,47 @@
 								<h3 class="text-uppercase resume-section-heading mb-4">Projects</h3>
 								<div class="item mb-3">
 									<div class="item-heading row align-items-center mb-2">
-										<h4 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0">Project Lorem Ipsum</h4>
-										<div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-start text-md-end">Open Source</div>
+										<h4 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0">Samhdr</h4>
+										<div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-start text-md-end">January 2023 - Present</div>
 										
 									</div>
 									<div class="item-content">
-										<p>You can use this section for your side projects. You can <a href="#" class="theme-link">provide a project link here</a> as well. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+										<p>
+											An original, online card game that allows users to connect with each other and challenge other players in quick matches. Players simply enter their name, select 3 of the 6 suits to build their deck, and enter the lobby to find other players.
+											<ul>
+												<li>Built a front-end website using React and hosted it on an AWS S2 bucket. </li>
+												<li>Built a back-end server using Node.js and Socket.io and deployed it to an AWS EC2 instance.</li>
+												<li>Reserved a domain using Google Domains, and resolved the domain using AWS Route 53. </li>
+												<li>The start of development to the first deployment on the cloud took two weeks.</li>
+												<li>Screenshot of a game in progress between two players:</li>
+												<img class="list-item-image" src="./assets/images/samhdr_screenshot.png" />
+												<li>Visit the site at: <a href="http/:samhdr.com">samhdr.com</a></li>
+												<li>Visit the the Github repositories at: <a href="https://github.com/chrisdemonte/Sahmdr"> Samhdr</a> and <a href="https://github.com/chrisdemonte/Samhdr-Server">Samhdr-Server</a></li>
+												<li>Technlogoies Used: React, Node.js, Socket.io, Amazon Web Services, Google Domains, HTML, CSS, JavaScript, JSON</li>
+											</ul>
+										</p>
 										
 										
 									</div>
 								</div><!--//item-->
 								<div class="item">
 									<div class="item-heading row align-items-center mb-2">
-										<h4 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0">Project Sed Fringilla</h4>
-										<div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-start text-md-end">Open Source</div>
+										<h4 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0">Android RSI Stock Trading Simulator</h4>
+										<div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-start text-md-end">February 2022 - May 2022</div>
 										
 									</div>
 									<div class="item-content">
-										<p>You can use this section for your side projects. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.</p>
+										<p>
+											An android app where users can create an account, login, build a mock portfolio, browse through stocks, and view recent stock data. The application calculates the relative strength index (RSI) of each stock based on the previous 14 days of data and suggests whether to buy, sell, or hold. There is also a stock trading simulator that calculates the rolling RSI over a three month period and uses a custom-made algorithm to simulate the estimated gains or loss in portfolio value if the user followed the app's trading suggestions.
+											<ul>
+												<li>Built the app using Java and Android Studio.</li>
+												<li>Sends HTTP calls to the Alpha Vantage stock market API and parses the response for relevant data.</li>
+												<li>Stores user data on Google Firebase in a NoSQL database, and retrieves user data when logging in. Perfomrs checks to make sure usernames are unique when creating new accounts.</li>
+												<li>In testing, the RSI trading algorithm performed better than a holding strategy in ~60% of the simulations, performed the same as a holding strategy ~30% of the simulations, and performed worse in ~10%.</li>
+												<li>Visit the the Github repository at: <a href="https://github.com/chrisdemonte/CS370_FALL21_TradingApp"> Android RSI Stock Trading Simulator</a> 
+												<li>Technlogoies Used: Java, Android, Android Studio, Google Firebase, Alpha Vantage Stock API, HTTP, JSON</li>
+											</ul>
+										</p>
 										
 									</div>
 								</div><!--//item-->
@@ -148,17 +211,17 @@
 										<li class="mb-2">C/C++/C#<li>
 										<li class="mb-2">JavaScript</li>
 										<li class="mb-2">HTML/CSS</li>
-										<li class="mb-2">SQL</li>
 										<li class="mb-2">Igor Pro</li>
 										<li class="mb-2">OpenGL/GLSL</li>
-										<li class="mb-2">Lisp</li>
-										<li class="mb-2">Assembly</li>
+
 										</ul>
 									</div><!--//item-->
 									<div class="item">
 										<h4 class="item-title">Proficiencies</h4>
 										<ul class="list-unstyled resume-skills-list">
 											<li class="mb-2">JavaFX/Swing</li>
+											<li class="mb-2">React</li>
+											<li class="mb-2">Node.js</li>
 											<li class="mb-2">Android/Android Studio</li>
 											<li class="mb-2">Firebase</li>
 											<li class="mb-2">SQL/NoSQL</li>
@@ -169,9 +232,8 @@
 											<li class="mb-2">Jupyter Notebooks</li>
 											<li class="mb-2">Image Processing</li>
 											<li class="mb-2">Data Mining/Data Analysis</li>
-											<li class="mb-2">Node.js/jQuery</li>
-											<li class="mb-2">Cloud Computing/AWS/GCP/Azure</li>
-											<li class="mb-2">Docker/Kubernettes</li>
+											<li class="mb-2">jQuery</li>
+											<li class="mb-2">Cloud Computing/AWS/GCP</li>
 											<li class="mb-2">Qualtrics</li>
 											<li class="mb-2">Control Systems Engineering/Bluesky/EPICS</li>
 											<li class="mb-2">Object Oriented Programming</li>
